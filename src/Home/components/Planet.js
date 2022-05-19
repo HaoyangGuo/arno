@@ -6,6 +6,7 @@ import {
 	Edges,
 	GradientTexture,
 	useTexture,
+	Billboard,
 } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
 
@@ -40,12 +41,12 @@ export default function Planet(props) {
 			setShowNetwork(false);
 		}
 		// animatedPath.current.position.z = data.range(0, 1);
-        if (data.range(0, 1) > 0.8 && showCluster) {
-            setShowCluster(false);
-        }
-        if (data.range(0, 1) < 0.8 && !showCluster) {
-            setShowCluster(true);
-        }
+		if (data.range(0, 1) > 0.85 && showCluster) {
+			setShowCluster(false);
+		}
+		if (data.range(0, 1) < 0.85 && !showCluster) {
+			setShowCluster(true);
+		}
 	});
 
 	console.log("rerendered");
@@ -82,8 +83,8 @@ export default function Planet(props) {
 
 	return (
 		<group ref={planet} {...props}>
-		    {vaporWave}
-            {/* <Trails color={"red"} higher={0} /> */}
+			{vaporWave}
+			{/* <Trails color={"red"} higher={0} /> */}
 
 			{/* globe */}
 			<mesh scale={[1, 1, 1]} receiveShadow>
@@ -128,10 +129,6 @@ export default function Planet(props) {
 						<Devices />
 						{testBoxes}
 						<Cursor />
-						{/* <mesh rotation={[Math.PI, 0, 0]}>
-                        <planeGeometry attach="geometry" args={[10, 10]} />
-                        <meshStandardMaterial attach="material" color="white" />
-                    </mesh> */}
 						<Base />
 					</Physics>
 				</group>

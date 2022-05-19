@@ -9,17 +9,19 @@ export default function Network(props) {
 	const light = [];
 	for (let i = -25; i <= 25; i += 2) {
 		const Start = [0, 0, -12];
-		const End = [i * 1.2, 5, -30];
+		const End = [i * 1.2, -5, -30];
 		fibers.push(<Fiber start={Start} end={End} key={i} />);
 		light.push(
 			<MovingPoint
 				position={[0, 0, -12]}
-				ending={[i * 1.2, 5, -30]}
+				ending={[i * 1.2, -5, -30]}
 				key={i}
 			/>
 			// <MovingPoint position={[0, -1, -3]} ending={[i * 2, 20, -10]} />
 		);
 	}
+
+	console.log(props.showNetwork);
 	return (
 		<group {...props}>
 			{props.showNetwork && <Light points={light} />}
@@ -31,11 +33,13 @@ export default function Network(props) {
 function Fiber({ start, end }) {
 	const ref = useRef();
 	const timerRef = useRef();
+	let geometry;
 
 	useLayoutEffect(() => {
-		ref.current.geometry.setFromPoints(
+		geometry = new THREE.BufferGeometry().setFromPoints(
 			[start, end].map((point) => new THREE.Vector3(...point))
 		);
+		ref.current.setGeometry(geometry);
 	}, [start, end]);
 
 	const [opacity, setOpacity] = React.useState(0);
@@ -55,14 +59,33 @@ function Fiber({ start, end }) {
 	}, [opacity]);
 	// console.log(opacity);
 	return (
-		<line ref={ref}>
-			<bufferGeometry />
-			<lineBasicMaterial
-				color="#06FF00"
-				transparent={true}
+		// <line ref={ref}>
+		// 	<bufferGeometry />
+		// 	<lineBasicMaterial
+		// 		color="#06FF00"
+		// 		transparent={true}
+		// 		opacity={[opacity + 0.1]}
+		// 	/>
+		// </line>
+		<mesh>
+			<meshLine attach="geometry" ref={ref} />
+			<meshLineMaterial
+				transparent
+				// depthTest={false}
+				lineWidth={0.025}
+				color={"#06FF00"}
 				opacity={[opacity + 0.1]}
+				// dashArray={0.1}
+				// dashRatio={0.2}
+                alphaTest={0.1}
 			/>
-		</line>
+        	{/* <meshBasicMaterial
+                attach="material"
+				color="#06FF00"
+		 		transparent={true}
+		 		opacity={[opacity + 0.1]}
+		 	/> */}
+		</mesh>
 	);
 }
 
@@ -72,7 +95,8 @@ function Light(props) {
 			<PointMaterial
 				transparent
 				color="#fff"
-				size={0.03999}
+				// size={0.03999}
+                size={0.1}
 				sizeAttenuation={true}
 				depthWrite={false}
 			/>

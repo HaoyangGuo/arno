@@ -1,12 +1,17 @@
 import React, { useEffect } from "react";
 import * as THREE from "three";
 import { useThree, useFrame, extend } from "@react-three/fiber";
-import { Edges } from "@react-three/drei";
+import { Edges, Billboard, Image } from "@react-three/drei";
 import { useCompoundBody, useSphere, useBox } from "@react-three/cannon";
-import { RGBA_ASTC_12x12_Format } from "three";
+import testIcon from "../assets/testIcon.png";
 
 const vec = new THREE.Vector3();
-const testMaterial = new THREE.MeshStandardMaterial({ color: "yellow" });
+// const testMaterial = new THREE.MeshStandardMaterial({ color: "yellow", map: new THREE.TextureLoader().load(testIcon) });
+const testMaterial = new THREE.MeshStandardMaterial({
+	color: "white",
+	transparent: true,
+	opacity: 0.5,
+});
 const testGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
 
 function Devices(props) {
@@ -21,14 +26,25 @@ function Devices(props) {
 	useEffect(() => api.position.subscribe((p) => api.applyForce(vec.set(...p).normalize().multiplyScalar(-20).toArray(), [0, 0, 0])), [api]) // prettier-ignore
 
 	return (
-		<group ref={ref} dispose={null}>
+		// <group ref={ref} dispose={null}>
+		// 	<mesh
+		// 		castShadow
+		// 		receiveShadow
+		// 		geometry={testGeometry}
+		// 		material={testMaterial}
+		// 	/>
+		// </group>
+		<Billboard ref={ref} dispose={null}>
 			<mesh
 				castShadow
 				receiveShadow
 				geometry={testGeometry}
 				material={testMaterial}
-			/>
-		</group>
+			>
+			</mesh>
+			<Image url={testIcon} scale={0.5} />
+			<Image url={testIcon} scale={0.5} rotation={[0, Math.PI, 0]} />
+		</Billboard>
 	);
 }
 

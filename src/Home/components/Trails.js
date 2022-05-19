@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 
 function SparkLine({ curve, color, speed, test }) {
 	const material = useRef();
-    const box = useRef();
+	const box = useRef();
 
 	let newPosition, tangent, radians;
 	let fraction = 0;
@@ -13,23 +13,20 @@ function SparkLine({ curve, color, speed, test }) {
 	let axis = new THREE.Vector3();
 
 	useFrame(() => {
-		material.current.uniforms.dashOffset.value -= speed;
-		fraction += 0.001;
+		// material.current.uniforms.dashOffset.value -= speed;
+		fraction += 0.002;
 
 		if (fraction > 1) {
 			fraction = 0;
-			normal.set(0, 1, 0);
+			// normal.set(0, 1, 0);
 		}
 
 		box.current.position.copy(test.getPoint(fraction));
-
-		tangent = test.getTangent(fraction);
-		axis.crossVectors(normal, tangent).normalize();
-
-		radians = Math.acos(normal.dot(tangent));
-		box.current.quaternion.setFromAxisAngle(axis, radians);
-
-		normal.crossVectors(tangent, axis);
+		// tangent = test.getTangent(fraction);
+		// axis.crossVectors(normal, tangent).normalize();
+		// radians = Math.acos(normal.dot(tangent));
+		// box.current.quaternion.setFromAxisAngle(axis, radians);
+		// normal.crossVectors(tangent, axis);
 	});
 
 	return (
@@ -40,14 +37,14 @@ function SparkLine({ curve, color, speed, test }) {
 					ref={material}
 					transparent
 					// depthTest={false}
-					lineWidth={0.02}
+					lineWidth={0.1}
 					color={color}
-					dashArray={0.1}
-					dashRatio={0.2}
+					// dashArray={0.1}
+					// dashRatio={0.2}
 				/>
 			</mesh>
 			<mesh position={curve[0]} ref={box}>
-				<boxGeometry attach="geometry" args={[1, 1, 1]} />
+				<boxGeometry attach="geometry" args={[0.1, 0.1, 0.1]} />
 				<meshBasicMaterial attach="material" color={"white"} />
 			</mesh>
 		</group>
@@ -90,6 +87,7 @@ export default function Trails({ count = 1, color, radius = 10, higher }) {
 					[13.5, -0.85, 0.1],
 					[13.6, -0.85, 0],
 				];
+
 
 				coordinates = coordinates.map(([r, theta, phi]) => [
 					r + higher,
