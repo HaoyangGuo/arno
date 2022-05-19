@@ -74,22 +74,16 @@ export default function Planet(props) {
 		"#E848AC",
 	];
 	const vaporWave = [];
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < 1; i++) {
 		vaporWave.push(
-			<Trails key={i} color={vaporWaveColors[9 - i]} higher={i * 0.025} />
+			<Trails key={i} color={vaporWaveColors[9 - i]} higher={i * 0.05} />
 		);
 	}
 
 	return (
 		<group ref={planet} {...props}>
-			{/* <Trails count={1} colors={["blue"]} higher={0}/>
-            <Trails count={1} colors={["blue"]} higher={0.025}/>
-            <Trails count={1} colors={["blue"]} higher={0.05}/>
-            <Trails count={1} colors={["blue"]} higher={0.0725}/>
-            <Trails count={1} colors={["blue"]} higher={0.0975}/>
-            <Trails count={1} colors={["blue"]} higher={0.1225}/>
-            <Trails count={1} colors={["blue"]} higher={0.1475}/> */}
-			{vaporWave}
+		    {vaporWave}
+            {/* <Trails color={"red"} higher={0} /> */}
 
 			{/* globe */}
 			<mesh scale={[1, 1, 1]} receiveShadow>

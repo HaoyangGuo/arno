@@ -31,9 +31,9 @@ export default function Home() {
 				{/* <CameraLerp /> */}
 				<ScrollControls pages={[5]}>
 					<Planet position={[0, -12.5, 0]} />
-					<Scroll html>
+					{/* <Scroll html>
 						<Html />
-					</Scroll>
+					</Scroll> */}
 				</ScrollControls>
 				<gridHelper
 					args={[40, 20, "red", "white"]}
