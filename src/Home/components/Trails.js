@@ -44,7 +44,7 @@ function SparkLine({ curve, color, speed, test }) {
 				/>
 			</mesh>
 			<mesh position={curve[0]} ref={box}>
-				<boxGeometry attach="geometry" args={[0.1, 0.1, 0.1]} />
+				<boxGeometry attach="geometry" args={[0.5, 0.5, 0.5]} />
 				<meshBasicMaterial attach="material" color={"white"} />
 			</mesh>
 		</group>

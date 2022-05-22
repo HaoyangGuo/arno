@@ -40,8 +40,7 @@ function Devices(props) {
 				receiveShadow
 				geometry={testGeometry}
 				material={testMaterial}
-			>
-			</mesh>
+			></mesh>
 			<Image url={testIcon} scale={0.5} />
 			<Image url={testIcon} scale={0.5} rotation={[0, Math.PI, 0]} />
 		</Billboard>
