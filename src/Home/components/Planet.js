@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import {
 	useScroll,
+    Html,
 	Edges,
 	GradientTexture,
 	useTexture,
@@ -18,6 +19,7 @@ import Network from "../components/Network";
 import { Devices, Cursor, Base } from "../components/Cluster";
 import Geisel from "../components/Geisel";
 import Trails from "../components/Trails";
+import Particles from "./Particles";
 
 export default function Planet(props) {
 	const data = useScroll();
@@ -62,29 +64,33 @@ export default function Planet(props) {
 		return vec;
 	}
 
-	const vaporWaveColors = [
-		"#FEFE69",
-		"#FFF668",
-		"#F8CE64",
-		"#F2A178",
-		"#EF8B82",
-		"#ED778B",
-		"#EB6793",
-		"#E9599A",
-		"#E84EA7",
-		"#E848AC",
-	];
-	const vaporWave = [];
-	for (let i = 0; i < 1; i++) {
-		vaporWave.push(
-			<Trails key={i} color={vaporWaveColors[9 - i]} higher={i * 0.05} />
-		);
-	}
+	// const vaporWaveColors = [
+	// 	"#FEFE69",
+	// 	"#FFF668",
+	// 	"#F8CE64",
+	// 	"#F2A178",
+	// 	"#EF8B82",
+	// 	"#ED778B",
+	// 	"#EB6793",
+	// 	"#E9599A",
+	// 	"#E84EA7",
+	// 	"#E848AC",
+	// ];
+	// const vaporWave = [];
+	// for (let i = 0; i < 10; i++) {
+	// 	vaporWave.push(
+	// 		<Trails key={i} color={vaporWaveColors[9 - i]} higher={i * 0.05} />
+	// 	);
+	// }
 
 	return (
 		<group ref={planet} {...props}>
-			{vaporWave}
+			{/* {vaporWave} */}
 			{/* <Trails color={"red"} higher={0} /> */}
+
+            {/* particles */}
+            <Particles />
+            
 
 			{/* globe */}
 			<mesh scale={[1, 1, 1]} receiveShadow>
@@ -124,7 +130,7 @@ export default function Planet(props) {
 
 			{/* cluster */}
 			{showCluster && (
-				<group position={[0, -9.5, -9]}>
+				<group position={[0, -9.25, -9]}>
 					<Physics gravity={[0, 0, 0]}>
 						<Devices />
 						{testBoxes}

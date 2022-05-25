@@ -4,7 +4,9 @@ import { useFrame } from "@react-three/fiber";
 
 function SparkLine({ curve, color, speed, test }) {
 	const material = useRef();
-	const box = useRef();
+	const particle1 = useRef();
+    const particle2 = useRef();
+    const particle3 = useRef();
 
 	let newPosition, tangent, radians;
 	let fraction = 0;
@@ -12,16 +14,18 @@ function SparkLine({ curve, color, speed, test }) {
 	let normal = new THREE.Vector3(0, 1, 0); // up
 	let axis = new THREE.Vector3();
 
-	useFrame(() => {
+    const speedfactor = Math.random() + 0.5;
+
+	useFrame((state) => {
 		// material.current.uniforms.dashOffset.value -= speed;
-		fraction += 0.002;
+		fraction += 0.001 * speedfactor;
 
 		if (fraction > 1) {
 			fraction = 0;
 			// normal.set(0, 1, 0);
 		}
 
-		box.current.position.copy(test.getPoint(fraction));
+		particle1.current.position.copy(test.getPoint(fraction));
 		// tangent = test.getTangent(fraction);
 		// axis.crossVectors(normal, tangent).normalize();
 		// radians = Math.acos(normal.dot(tangent));
@@ -37,14 +41,14 @@ function SparkLine({ curve, color, speed, test }) {
 					ref={material}
 					transparent
 					// depthTest={false}
-					lineWidth={0.1}
+					lineWidth={0.01}
 					color={color}
 					// dashArray={0.1}
 					// dashRatio={0.2}
 				/>
 			</mesh>
-			<mesh position={curve[0]} ref={box}>
-				<boxGeometry attach="geometry" args={[0.5, 0.5, 0.5]} />
+			<mesh position={curve[0]} ref={particle1}>
+				<sphereGeometry attach="geometry" args={[0.025, 32, 32]} />
 				<meshBasicMaterial attach="material" color={"white"} />
 			</mesh>
 		</group>
@@ -62,6 +66,7 @@ export default function Trails({ count = 1, color, radius = 10, higher }) {
 				// );
 
 				let coordinates = [
+					[12.2, 0.4, 0],
 					[12.2, 0.3, 0],
 					[12.2, 0.2, -0.5],
 					[12.2, 0, 0],
@@ -84,10 +89,9 @@ export default function Trails({ count = 1, color, radius = 10, higher }) {
 					[13.2, -0.65, 0.42],
 					[13.3, -0.8, 0.4],
 					[13.4, -0.85, 0.25],
-					[13.5, -0.85, 0.1],
-					[13.6, -0.85, 0],
+					// [13.5, -0.85, 0.1],
+					// [13.6, -0.85, 0],
 				];
-
 
 				coordinates = coordinates.map(([r, theta, phi]) => [
 					r + higher,

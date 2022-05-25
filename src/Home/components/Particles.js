@@ -9,8 +9,8 @@ export default function Particles(props) {
 		random.inSphere(new Float32Array(5000), { radius: 10 })
 	);
 	useFrame((state, delta) => {
-		ref.current.rotation.x += delta / 10;
-		ref.current.rotation.y += delta / 15;
+		ref.current.rotation.x += -delta / 10;
+		ref.current.rotation.y += -delta / 15;
 	});
 	return (
 		<group rotation={[0, 0, Math.PI / 4]} position={[0, 6, 0]}>
@@ -23,8 +23,8 @@ export default function Particles(props) {
 			>
 				<PointMaterial
 					transparent
-					color="#fff"
-					size={0.02}
+					color="pink"
+					size={0.05}
 					sizeAttenuation={true}
 					depthWrite={false}
 				/>

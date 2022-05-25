@@ -6,7 +6,7 @@ import {
 	useScroll,
 	Stars,
 	OrbitControls,
-    Cloud
+	Cloud,
 } from "@react-three/drei";
 import * as THREE from "three";
 import { Physics } from "@react-three/cannon";
@@ -15,25 +15,27 @@ import { MeshLine, MeshLineMaterial } from "./MeshLine";
 import Planet from "./components/Planet";
 import Html from "./components/Html";
 
+import Htmls from "./components/Htmls";
+
 extend({ MeshLine, MeshLineMaterial });
 
 export default function Home() {
 	return (
 		<Canvas camera={{ fov: 55, position: [0, 0, 5] }}>
 			<Suspense fallback={null}>
-				//"#332FD0"
-				<color attach="background" args={["midnightblue"]} />
-				<OrbitControls />
-				<Stars />
-                
+				{/* <color attach="background" args={["midnightblue"]} /> */}
+				<color attach="background" args={["black"]} />
+				<OrbitControls enableZoom={false} />
+				{/* <Stars /> */}
 				<ambientLight />
 				<pointLight position={[10, 10, 10]} />
 				{/* <CameraLerp /> */}
 				<ScrollControls pages={[5]}>
 					<Planet position={[0, -12.5, 0]} />
-					{/* <Scroll html>
+					{/* <Htmls /> */}
+					<Scroll html>
 						<Html />
-					</Scroll> */}
+					</Scroll>
 				</ScrollControls>
 				<gridHelper
 					args={[40, 20, "red", "white"]}

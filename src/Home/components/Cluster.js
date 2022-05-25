@@ -50,7 +50,7 @@ function Devices(props) {
 function Base(props) {
 	const [ref, api] = useBox(() => ({
 		type: "Kinematic",
-		args: [3, 3, 0.05],
+		args: [8, 8, 0.05],
 		position: [0, 0.75, 0.75],
 		rotation: [-0.8, 0, 0],
 	}));
@@ -62,8 +62,8 @@ function Base(props) {
 			position={[0, 0.75, 0.75]}
 			rotation={[-0.8, 0, 0]}
 		>
-			<boxGeometry attach="geometry" args={[3, 3, 0.05]} />
-			<meshStandardMaterial attach="material" color="red" />
+			{/* <boxGeometry attach="geometry" args={[8, 8, 0.05]} />
+			<meshPhongMaterial attach="material" transparent={true} opacity={0} /> */}
 		</mesh>
 	);
 }
