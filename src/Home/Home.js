@@ -15,8 +15,6 @@ import { MeshLine, MeshLineMaterial } from "./MeshLine";
 import Planet from "./components/Planet";
 import Html from "./components/Html";
 
-import Htmls from "./components/Htmls";
-
 extend({ MeshLine, MeshLineMaterial });
 
 export default function Home() {
