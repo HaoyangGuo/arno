@@ -72,7 +72,7 @@ function Fiber({ start, end }) {
 			<meshLineMaterial
 				transparent
 				// depthTest={false}
-				lineWidth={0.025}
+				lineWidth={0.01}
 				color={"#06FF00"}
 				opacity={[opacity + 0.1]}
 				// dashArray={0.1}
@@ -96,7 +96,7 @@ function Light(props) {
 				transparent
 				color="#fff"
 				// size={0.03999}
-                size={0.1}
+                size={0.075}
 				sizeAttenuation={true}
 				depthWrite={false}
 			/>

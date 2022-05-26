@@ -10,7 +10,7 @@ const vec = new THREE.Vector3();
 const testMaterial = new THREE.MeshStandardMaterial({
 	color: "white",
 	transparent: true,
-	opacity: 0.5,
+	opacity: 0,
 });
 const testGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
 
@@ -34,16 +34,19 @@ function Devices(props) {
 		// 		material={testMaterial}
 		// 	/>
 		// </group>
-		<Billboard ref={ref} dispose={null}>
+		<group ref={ref} dispose={null}>
 			<mesh
 				castShadow
 				receiveShadow
 				geometry={testGeometry}
 				material={testMaterial}
-			></mesh>
+			>
+				<Edges scale={2} threshold={15} color="white" />
+                <Edges scale={1} threshold={15} color="yellow" />
+			</mesh>
 			<Image url={testIcon} scale={0.5} />
 			<Image url={testIcon} scale={0.5} rotation={[0, Math.PI, 0]} />
-		</Billboard>
+		</group>
 	);
 }
 

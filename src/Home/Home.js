@@ -1,13 +1,14 @@
-import React, { Suspense, useRef } from "react";
-import { Canvas, useFrame, extend } from "@react-three/fiber";
+import React, { Suspense, useRef, useContext } from "react";
+import { Canvas, useFrame, extend, useThree } from "@react-three/fiber";
 import {
 	Scroll,
 	ScrollControls,
 	useScroll,
 	Stars,
-	OrbitControls,
 	Cloud,
+	OrbitControls,
 } from "@react-three/drei";
+
 import * as THREE from "three";
 import { Physics } from "@react-three/cannon";
 import { MeshLine, MeshLineMaterial } from "./MeshLine";
@@ -15,27 +16,43 @@ import { MeshLine, MeshLineMaterial } from "./MeshLine";
 import Planet from "./components/Planet";
 import Html from "./components/Html";
 
+import { SuncaveContextProvider, SuncaveContext } from "./SuncaveContext";
+
 extend({ MeshLine, MeshLineMaterial });
 
 export default function Home() {
+	const { enteredSuncave, EnterSuncave, ExitSuncave } =
+		useContext(SuncaveContext);
 	return (
 		<Canvas camera={{ fov: 55, position: [0, 0, 5] }}>
 			<Suspense fallback={null}>
-				{/* <color attach="background" args={["midnightblue"]} /> */}
-				<color attach="background" args={["black"]} />
-				<OrbitControls enableZoom={false} />
+				<color attach="background" args={["midnightblue"]} />
+				{/* <color attach="background" args={["blue"]} /> */}
+				{enteredSuncave && (
+					<OrbitControls
+						enableZoom={false}
+						enablePan={false}
+					/>
+				)}
 				{/* <Stars /> */}
 				<ambientLight />
 				<pointLight position={[10, 10, 10]} />
 				{/* <CameraLerp /> */}
 				<ScrollControls pages={[5]}>
-					<Planet position={[0, -12.5, 0]} />
+					<Planet
+						position={[0, -12.5, 0]}
+						enteredSuncave={enteredSuncave}
+						EnterSuncave={EnterSuncave}
+					/>
 					{/* <Htmls /> */}
 					<Scroll html>
-						<Html />
+						<Html
+							enteredSuncave={enteredSuncave}
+							EnterSuncave={EnterSuncave}
+						/>
 					</Scroll>
 				</ScrollControls>
-				<gridHelper
+				{/* <gridHelper
 					args={[40, 20, "red", "white"]}
 					position={[0, -12.5, 0]}
 				/>
@@ -48,7 +65,7 @@ export default function Home() {
 					args={[40, 20, "red", "white"]}
 					position={[0, -12.5, 0]}
 					rotation={[0, 0, Math.PI / 2]}
-				/>
+				/> */}
 			</Suspense>
 		</Canvas>
 	);

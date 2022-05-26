@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import * as THREE from "three";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import {
 	useScroll,
-    Html,
+	Html,
 	Edges,
 	GradientTexture,
 	useTexture,
@@ -20,6 +20,7 @@ import { Devices, Cursor, Base } from "../components/Cluster";
 import Geisel from "../components/Geisel";
 import Trails from "../components/Trails";
 import Particles from "./Particles";
+import Screens from "./Screens";
 
 export default function Planet(props) {
 	const data = useScroll();
@@ -27,9 +28,14 @@ export default function Planet(props) {
 	const [playVideo, setPlayVideo] = useState(false);
 	const [showNetwork, setShowNetwork] = useState(false);
 	const [showCluster, setShowCluster] = useState(true);
+	const { camera } = useThree();
 
 	useFrame(() => {
-		planet.current.rotation.x = Math.PI * data.range(0, 1);
+		if (props.enteredSuncave == false) {
+			planet.current.rotation.x = Math.PI * data.range(0, 1);
+		} else if (props.enteredSuncave == true && camera.position.z > 0.5) {
+			camera.position.z -= 0.1;
+		}
 		if (data.range(0, 1) > 0.8 && !playVideo) {
 			setPlayVideo(true);
 		}
@@ -50,6 +56,20 @@ export default function Planet(props) {
 			setShowCluster(true);
 		}
 	});
+
+	useEffect(() => {
+		if (props.enteredSuncave == true) {
+			planet.current.rotation.x = Math.PI;
+			setPlayVideo(true);
+		} else {
+			camera.position.x = 0;
+			camera.position.y = 0;
+			camera.position.z = 5;
+			camera.rotation.x = 0;
+            camera.rotation.y = 0;
+            camera.rotation.z = 0;
+		}
+	}, [props.enteredSuncave]);
 
 	console.log("rerendered");
 
@@ -88,9 +108,8 @@ export default function Planet(props) {
 			{/* {vaporWave} */}
 			{/* <Trails color={"red"} higher={0} /> */}
 
-            {/* particles */}
-            <Particles />
-            
+			{/* particles */}
+			<Particles />
 
 			{/* globe */}
 			<mesh scale={[1, 1, 1]} receiveShadow>
@@ -119,12 +138,15 @@ export default function Planet(props) {
 				scale={[0.5, 0.5, 0.5]}
 			/>
 			{/* suncave */}
-			<Suncave position={[0, -11.9, 0]} scale={[0.5, 0.35, 0.5]} />
+			<Suncave position={[0, -12, 0]} scale={[0.5, 0.5, 0.5]} />
+
+            {/* screens */}
+            <Screens position={[0, -12.57, 0]} rotation={[-Math.PI, 0, 0]}/>
 
 			{/* videotext */}
 			<VideoText
 				playVideo={playVideo}
-				position={[0, -13.5, 3]}
+				position={[0, -15, 3]}
 				rotation={[Math.PI, 0, 0]}
 			/>
 

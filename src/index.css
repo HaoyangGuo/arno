@@ -88,9 +88,9 @@ body,
 	font-family: sans-serif;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
 	display: none;
-} */
+}
 
 .html-body {
 	font-family: "sans-serif";
@@ -103,16 +103,24 @@ body,
 
 .nav-bar {
     color: white;
-    background-color: black;
+    background-color: #010327;
     display: flex;
     flex-direction: row;
-    padding: 1.5rem 0 1.5rem 3rem;
+    padding: 1.5rem 3rem 1.5rem 3rem;
     gap: 3vw;
 }
 
-
-
 .nav-bar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+}
+
+.nav-bar-exit {
+    margin-left: auto;
     color: white;
     text-decoration: none;
     font-size: 1rem;
@@ -262,5 +270,7 @@ body,
     top: 475vh;
     left: 50vw;
     color: white;
+    white-space: nowrap;
+    cursor: pointer;
     transform: translate(-50%, -50%);
 }

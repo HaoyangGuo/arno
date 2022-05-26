@@ -32,6 +32,7 @@ export default function Model(props) {
 					opacity={1}
 					color={"#DFDFDE"}
 				/>
+                <Edges scale={2.25} threshold={0} color="#E15FED" />
 			</mesh>
 		</group>
 	);
