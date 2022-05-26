@@ -66,8 +66,8 @@ export default function Planet(props) {
 			camera.position.y = 0;
 			camera.position.z = 5;
 			camera.rotation.x = 0;
-            camera.rotation.y = 0;
-            camera.rotation.z = 0;
+			camera.rotation.y = 0;
+			camera.rotation.z = 0;
 		}
 	}, [props.enteredSuncave]);
 
@@ -138,10 +138,10 @@ export default function Planet(props) {
 				scale={[0.5, 0.5, 0.5]}
 			/>
 			{/* suncave */}
-			<Suncave position={[0, -12, 0]} scale={[0.5, 0.5, 0.5]} />
+			<Suncave position={[0, -11.95, 0]} scale={[0.5, 0.5, 0.5]} />
 
-            {/* screens */}
-            <Screens position={[0, -12.57, 0]} rotation={[-Math.PI, 0, 0]}/>
+			{/* screens */}
+			<Screens position={[0, -12.535, 0]} rotation={[-Math.PI, 0, 0]} />
 
 			{/* videotext */}
 			<VideoText

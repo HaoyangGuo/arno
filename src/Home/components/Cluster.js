@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { useThree, useFrame, extend } from "@react-three/fiber";
-import { Edges, Billboard, Image } from "@react-three/drei";
+import { useThree, useFrame, extend, useLoader } from "@react-three/fiber";
+import { Edges, Billboard, Text,Image } from "@react-three/drei";
 import { useCompoundBody, useSphere, useBox } from "@react-three/cannon";
-import testIcon from "../assets/testIcon.png";
+import testIcon from "../assets/icon.png";
 
 const vec = new THREE.Vector3();
 // const testMaterial = new THREE.MeshStandardMaterial({ color: "yellow", map: new THREE.TextureLoader().load(testIcon) });
@@ -22,7 +22,6 @@ function Devices(props) {
 		linearDamping: 0.9,
 		position: [0, 0, 0],
 	}));
-
 	useEffect(() => api.position.subscribe((p) => api.applyForce(vec.set(...p).normalize().multiplyScalar(-20).toArray(), [0, 0, 0])), [api]) // prettier-ignore
 
 	return (
@@ -34,18 +33,21 @@ function Devices(props) {
 		// 		material={testMaterial}
 		// 	/>
 		// </group>
-		<group ref={ref} dispose={null}>
-			<mesh
-				castShadow
-				receiveShadow
-				geometry={testGeometry}
-				material={testMaterial}
-			>
-				<Edges scale={2} threshold={15} color="white" />
-                <Edges scale={1} threshold={15} color="yellow" />
-			</mesh>
-			<Image url={testIcon} scale={0.5} />
-			<Image url={testIcon} scale={0.5} rotation={[0, Math.PI, 0]} />
+		<group>
+			<group ref={ref} dispose={null}>
+				<mesh
+					castShadow
+					receiveShadow
+					geometry={testGeometry}
+					material={testMaterial}
+				>
+					<Edges scale={2} threshold={15} color="white" />
+					<Edges scale={1} threshold={15} color="yellow" />
+				</mesh>
+
+				<Image url={testIcon} scale={0.5} rotation={[0, Math.PI, 0]} />
+				<Image url={testIcon} scale={0.5} rotation={[0, 0, 0]} />
+			</group>
 		</group>
 	);
 }

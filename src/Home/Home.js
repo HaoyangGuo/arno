@@ -34,6 +34,7 @@ export default function Home() {
 						enablePan={false}
 					/>
 				)}
+                {/* <OrbitControls /> */}
 				{/* <Stars /> */}
 				<ambientLight />
 				<pointLight position={[10, 10, 10]} />
