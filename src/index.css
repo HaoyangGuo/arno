@@ -111,7 +111,7 @@ body,
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	padding: 2.5rem 3rem 2.5rem 3rem;
+	padding: 2.25rem 3rem 2.25rem 3rem;
 	gap: 5vw;
 }
 
@@ -269,7 +269,7 @@ body,
 .left-of-bear {
 	position: absolute;
 	width: 40vw;
-	top: 50vh;
+	top: 40vh;
 	left: 10vw;
 	color: white;
 }

@@ -76,7 +76,7 @@ export default function Html(props) {
 					)}
 					{showRightOfGeisel && (
 						<div className="right-of-geisel fade-in">
-            <div className="title">
+							<div className="title">
 								<div className="title-base">UCSD</div>
 								<div className="title-red">UCSD</div>
 								<div className="title-green">UCSD</div>
