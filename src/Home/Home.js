@@ -16,25 +16,30 @@ import { MeshLine, MeshLineMaterial } from "./MeshLine";
 import Planet from "./components/Planet";
 import Html from "./components/Html";
 
-import { SuncaveContextProvider, SuncaveContext } from "./SuncaveContext";
+import { SuncaveContext } from "./SuncaveContext";
 
 extend({ MeshLine, MeshLineMaterial });
 
 export default function Home() {
-	const { enteredSuncave, EnterSuncave, ExitSuncave } =
-		useContext(SuncaveContext);
+	const {
+		enteredSuncave,
+		EnterSuncave,
+		ExitSuncave,
+		ShowProjectCard,
+		CloseProjectCard,
+	} = useContext(SuncaveContext);
 	return (
 		<Canvas camera={{ fov: 55, position: [0, 0, 5] }}>
 			<Suspense fallback={null}>
 				<color attach="background" args={["midnightblue"]} />
 				{/* <color attach="background" args={["blue"]} /> */}
-				{enteredSuncave && (
+				{/* {enteredSuncave && (
 					<OrbitControls
 						enableZoom={false}
 						enablePan={false}
 					/>
-				)}
-                {/* <OrbitControls /> */}
+				)} */}
+				<OrbitControls />
 				{/* <Stars /> */}
 				<ambientLight />
 				<pointLight position={[10, 10, 10]} />
@@ -44,13 +49,11 @@ export default function Home() {
 						position={[0, -12.5, 0]}
 						enteredSuncave={enteredSuncave}
 						EnterSuncave={EnterSuncave}
+						ShowProjectCard={ShowProjectCard}
 					/>
 					{/* <Htmls /> */}
 					<Scroll html>
-						<Html
-							enteredSuncave={enteredSuncave}
-							EnterSuncave={EnterSuncave}
-						/>
+						<Html enteredSuncave={enteredSuncave} EnterSuncave={EnterSuncave} />
 					</Scroll>
 				</ScrollControls>
 				{/* <gridHelper

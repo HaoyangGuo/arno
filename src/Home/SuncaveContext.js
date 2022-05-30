@@ -4,24 +4,45 @@ const SuncaveContext = React.createContext();
 
 function SuncaveContextProvider({ children }) {
 	const [enteredSuncave, setEnteredSuncave] = useState(false);
+	const [showProjectDetail, setShowProjectDetail] = useState(false);
+  const [currVideo, setCurrVideo] = useState("");
 
 	function EnterSuncave() {
 		setEnteredSuncave(true);
 	}
 
-    function ExitSuncave() {
-        setEnteredSuncave(false);
-    }
+	function ExitSuncave() {
+		setEnteredSuncave(false);
+	}
 
-    console.log("SuncaveContext changed to: " + enteredSuncave);
+	function ShowProjectCard() {
+		if (enteredSuncave) {
+			setShowProjectDetail(true);
+		}
+	}
+
+	function CloseProjectCard() {
+		if (enteredSuncave) {
+			setShowProjectDetail(false);
+		}
+	}
+
+	console.log("ShowProjectDetail changed to: " + showProjectDetail);
 
 	return (
 		<SuncaveContext.Provider
-			value={{ enteredSuncave, EnterSuncave, ExitSuncave }}
+			value={{
+				enteredSuncave,
+				showProjectDetail,
+				EnterSuncave,
+				ExitSuncave,
+				ShowProjectCard,
+				CloseProjectCard,
+			}}
 		>
 			{children}
 		</SuncaveContext.Provider>
 	);
 }
 
-export {SuncaveContextProvider, SuncaveContext};
+export { SuncaveContextProvider, SuncaveContext };

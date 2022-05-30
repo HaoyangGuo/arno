@@ -12,19 +12,24 @@ export default function App() {
 	return (
 		<div id="app">
 			<nav className="nav-bar">
-				<div className="nav-bar-logo">ARNO</div>
+				<div className="nav-bar-logo">
+            <div className="nav-bar-logo-base">ARNO</div>
+            <div className="nav-bar-logo-red">ARNO</div>
+            <div className="nav-bar-logo-green">ARNO</div>
+        </div>
 				<Link className="nav-bar-link" to="/">
-					Home
+					HOME
 				</Link>
 				<div onClick={EnterSuncave} className="nav-bar-link">
-					About
+					PROJECTS
 				</div>
 				<Link className="nav-bar-link" to="/demo">
-					Demo
+					DEMO
 				</Link>
 				<Link className="nav-bar-link" to="/element">
-					Element
+					ELEMENT
 				</Link>
+				{!enteredSuncave && <div className="nav-bar-line"></div>}
 				{enteredSuncave && (
 					<div className="nav-bar-exit" onClick={ExitSuncave}>
 						EXIT THE SUNCAVE

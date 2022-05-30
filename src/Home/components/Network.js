@@ -21,7 +21,7 @@ export default function Network(props) {
 		);
 	}
 
-	console.log(props.showNetwork);
+	// console.log(props.showNetwork);
 	return (
 		<group {...props}>
 			{props.showNetwork && <Light points={light} />}

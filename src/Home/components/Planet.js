@@ -22,6 +22,7 @@ import Trails from "../components/Trails";
 import Particles from "./Particles";
 import Screens from "./Screens";
 
+
 export default function Planet(props) {
 	const data = useScroll();
 	const planet = useRef(null);
@@ -71,7 +72,7 @@ export default function Planet(props) {
 		}
 	}, [props.enteredSuncave]);
 
-	console.log("rerendered");
+	// console.log("rerendered");
 
 	const testBoxes = [];
 	for (let i = 0; i < 10; i++) {
@@ -130,7 +131,7 @@ export default function Planet(props) {
 			{/* network */}
 			<Network showNetwork={showNetwork} />
 			{/* warren bear */}
-			<Bear position={[2.2, 12.5, 0]} rotation={[0, 0, -0.25]} />
+			<Bear position={[1.5, 12.5, 0]} rotation={[0, 0, -0.25]} />
 			{/* atkinson */}
 			<Atkinson
 				position={[0, 0, -12.4]}
@@ -141,7 +142,46 @@ export default function Planet(props) {
 			<Suncave position={[0, -11.95, 0]} scale={[0.5, 0.5, 0.5]} />
 
 			{/* screens */}
-			<Screens position={[0, -12.535, 0]} rotation={[-Math.PI, 0, 0]} />
+			{/* front */}
+			<Screens
+				position={[0, -12.525, 0]}
+				rotation={[-Math.PI, 0, 0]}
+				playVideo={playVideo}
+        enteredSuncave={props.enteredSuncave}
+        ShowProjectCard={props.ShowProjectCard}
+			/>
+			{/* left front */}
+			<Screens
+				position={[-0.0055, -12.525, -0.0055]}
+				rotation={[-Math.PI, Math.PI / 3, 0]}
+				playVideo={playVideo}
+        enteredSuncave={props.enteredSuncave}
+        ShowProjectCard={props.ShowProjectCard}
+			/>
+			{/* right front */}
+			<Screens
+				position={[0.0055, -12.525, 0.0055]}
+				rotation={[-Math.PI, -Math.PI / 3, 0]}
+				playVideo={playVideo}
+        enteredSuncave={props.enteredSuncave}
+        ShowProjectCard={props.ShowProjectCard}
+			/>
+			{/* left back */}
+			<Screens
+				position={[0.0055, -12.525, -0.0055]}
+				rotation={[-Math.PI, Math.PI / 1.5, 0]}
+				playVideo={playVideo}
+        enteredSuncave={props.enteredSuncave}
+        ShowProjectCard={props.ShowProjectCard}
+			/>
+			{/* right front */}
+			<Screens
+				position={[0.0055, -12.525, -0.0055]}
+				rotation={[-Math.PI, Math.PI + Math.PI / 3, 0]}
+				playVideo={playVideo}
+        enteredSuncave={props.enteredSuncave}
+        ShowProjectCard={props.ShowProjectCard}
+			/>
 
 			{/* videotext */}
 			<VideoText

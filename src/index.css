@@ -74,6 +74,11 @@ select {
 }
 
 /* ---------- STYLE ---------- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@font-face {
+	font-family: "Quantum";
+	src: local("Quantum"), url(./fonts/Quantum.woff) format("woff");
+}
 
 html,
 body,
@@ -85,7 +90,7 @@ body,
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	font-family: sans-serif;
+	font-family: "Inter", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -93,7 +98,6 @@ body,
 }
 
 .html-body {
-	font-family: "sans-serif";
 	font-size: 1.5rem;
 	height: 100%;
 	overflow-y: hidden;
@@ -102,31 +106,69 @@ body,
 /* ---------- NAVBAR ---------- */
 
 .nav-bar {
-    color: white;
-    background-color: #010327;
-    display: flex;
-    flex-direction: row;
-    padding: 1.5rem 3rem 1.5rem 3rem;
-    gap: 3vw;
+	color: white;
+	background-color: rgb(1, 3, 39);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 2.5rem 3rem 2.5rem 3rem;
+	gap: 5vw;
+}
+
+.nav-bar-logo {
+	color: white;
+	font-size: 3.5rem;
+	font-weight: 700;
+	line-height: 0%;
+	letter-spacing: 0.618rem;
+	margin-top: 0.5rem;
+	font-family: "Quantum", sans-serif;
+	transform: scaleY(1.2);
+}
+
+.nav-bar-logo-green {
+	transform: translate(-2%, 0);
+	color: rgba(255, 255, 255, 0);
+	/* border: 1px solid #2EE09A; */
+	-webkit-text-stroke: 0.25px #2ee09a;
+}
+
+.nav-bar-logo-red {
+	transform: translate(2%, 0);
+	color: rgba(255, 255, 255, 0);
+	/* border: 1px solid #2EE09A; */
+	-webkit-text-stroke: 0.25px #ef84f5;
 }
 
 .nav-bar-link {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    cursor: pointer;
+	color: white;
+	text-decoration: none;
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 0%;
+	letter-spacing: 0.1rem;
+	cursor: pointer;
+}
+
+.nav-bar-line {
+	width: 100%;
+	height: 0.15rem;
+	background-color: white;
 }
 
 .nav-bar-exit {
-    margin-left: auto;
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    cursor: pointer;
+	margin-left: auto;
+	color: white;
+	text-decoration: none;
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 0%;
+	letter-spacing: 0.1rem;
+	cursor: pointer;
+	white-space: nowrap;
+	cursor: pointer;
 }
 
 /* ---------- SCROLLING-LAYER ---------- */
@@ -184,93 +226,122 @@ body,
 	}
 }
 
+.title {
+	position: relative;
+	color: white;
+	font-size: 5rem;
+	font-weight: 700;
+	letter-spacing: 0.618rem;
+	font-family: "Quantum", sans-serif;
+	transform: scaleY(1.2);
+	white-space: nowrap;
+}
+
+.title-green {
+	position: absolute;
+	top: 0;
+	transform: translate(-7.5px, 0);
+	color: rgba(255, 255, 255, 0);
+	/* border: 1px solid #2EE09A; */
+	-webkit-text-stroke: 0.25px #2ee09a;
+}
+
+.title-red {
+	position: absolute;
+	top: 0;
+	transform: translate(7.5px, 0);
+	color: rgba(255, 255, 255, 0);
+	/* border: 1px solid #2EE09A; */
+	-webkit-text-stroke: 0.25px #ef84f5;
+}
+
 .welcome {
 	position: absolute;
-	top: 75vh;
+	top: 65vh;
 	left: 50vw;
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-	transform: translate(-50%, -50%);
+	white-space: nowrap;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transform: translate(-50%, 0);
 }
 
 .left-of-bear {
 	position: absolute;
-	width: 40rem;
+	width: 40vw;
 	top: 50vh;
 	left: 10vw;
-    color: white;
+	color: white;
 }
 
 .right-of-geisel {
 	position: absolute;
-	width: 40rem;
+	width: 40vw;
 	top: 110vh;
 	left: 50vw;
-    color: white;
+	color: white;
 }
 
 .before-atkinson {
-    position: absolute;
-	width: 40rem;
-	top: 200vh;
+	position: absolute;
+	width: 40vw;
+	top: 180vh;
 	left: 50vw;
-    color: white;
-    transform: translate(-50%, -50%);
+	color: white;
+	transform: translate(-50%, 0);
 }
 
 .at-atkinson-left {
-    position: absolute;
-    width: 20rem;
-    top: 260vh;
-    left: 20vw;
-    color: white;
-    transform: translate(-50%, -50%);
+	position: absolute;
+	width: 20vw;
+	top: 250vh;
+	left: 20vw;
+	color: white;
+	transform: translate(-50%, 0);
 }
 
 .at-atkinson-right {
-    position: absolute;
-    width: 20rem;
-    top: 260vh;
-    left: 80vw;
-    color: white;
-    transform: translate(-50%, -50%);
+	position: absolute;
+	width: 20vw;
+	top: 250vh;
+	left: 80vw;
+	color: white;
+	transform: translate(-50%, 0);
 }
 
 .before-icons {
-    position: absolute;
-    width: 40rem;
-    top: 290vh;
-    left: 50vw;
-    color: white;
-    transform: translate(-50%, 0);
+	position: absolute;
+	width: 40vw;
+	top: 290vh;
+	left: 50vw;
+	color: white;
+	transform: translate(-50%, 0);
 }
 
 .at-icons-left {
-    position: absolute;
-    width: 20rem;
-    top: 350vh;
-    left: 20vw;
-    color: white;
-    transform: translate(-50%, 0);
+	position: absolute;
+	width: 20vw;
+	top: 350vh;
+	left: 20vw;
+	color: white;
+	transform: translate(-50%, 0);
 }
 
 .at-icons-right {
-    position: absolute;
-    width: 20rem;
-    top: 350vh;
-    left: 80vw;
-    color: white;
-    transform: translate(-50%, 0);
+	position: absolute;
+	width: 20vw;
+	top: 350vh;
+	left: 80vw;
+	color: white;
+	transform: translate(-50%, 0);
 }
 
 .at-suncave {
-    position: absolute;
-    top: 475vh;
-    left: 50vw;
-    color: white;
-    white-space: nowrap;
-    cursor: pointer;
-    transform: translate(-50%, -50%);
+	position: absolute;
+	top: 475vh;
+	left: 50vw;
+	color: white;
+	white-space: nowrap;
+	cursor: pointer;
+	transform: translate(-50%, -50%);
 }

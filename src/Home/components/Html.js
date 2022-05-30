@@ -35,7 +35,7 @@ export default function Html(props) {
 		if (data.range(0, 1) > 0.3 && !showBeforeAtkinson) {
 			setShowBeforeAtkinson(true);
 		}
-		if (data.range(0, 1) > 0.5 && !showAtAtkinson) {
+		if (data.range(0, 1) > 0.45 && !showAtAtkinson) {
 			setShowAtAtkinson(true);
 		}
 		if (data.range(0, 1) > 0.6 && !showBeforeIcons) {
@@ -52,77 +52,84 @@ export default function Html(props) {
 	return (
 		<div>
 			{!props.enteredSuncave && (
-			<div className="html-body">
-				{showWelcome && (
-					<div className="welcome fade-in">
-						<div>WELCOME!</div>
-						<div>SCROLL DOWN TO EXPLORE</div>
-					</div>
-				)}
-				{showLeftOfBear && (
-					<div className="left-of-bear fade-in">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Soluta, expedita natus libero ratione ipsa itaque,
-						deleniti laboriosam quo sint vitae, assumenda
-						consequatur dolorum maiores distinctio eaque rem dolores
-						cupiditate? Iste.
-					</div>
-				)}
-				{showRightOfGeisel && (
-					<div className="right-of-geisel fade-in">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Soluta, expedita natus libero ratione ipsa itaque,
-						deleniti laboriosam quo sint vitae, assumenda
-						consequatur dolorum maiores distinctio eaque rem dolores
-						cupiditate? Iste.
-					</div>
-				)}
-				{showBeforeAtkinson && (
-					<div className="before-atkinson fade-in">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Soluta, expedita natus libero ratione ipsa itaque,
-						deleniti laboriosam quo sint vitae, assumenda
-						consequatur dolorum maiores distinctio eaque rem dolores
-						cupiditate? Iste.
-					</div>
-				)}
-				{showAtAtkinson && (
-					<div className="at-atkinson fade-in">
-						<div className="at-atkinson-left">
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Soluta,
+				<div className="html-body">
+					{showWelcome && (
+						<div className="welcome fade-in">
+							<div>WELCOME!</div>
+							<div>SCROLL DOWN TO EXPLORE</div>
 						</div>
-						<div className="at-atkinson-right">
-							expedita natus libero ratione ipsa itaque, deleniti
-							laboriosam
+					)}
+					{showLeftOfBear && (
+						<div className="left-of-bear fade-in">
+							<div className="title">
+								<div className="title-base">WHAT IS ARNO?</div>
+								<div className="title-red">WHAT IS ARNO?</div>
+								<div className="title-green">WHAT IS ARNO?</div>
+							</div>
+							<div>
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta,
+								expedita natus libero ratione ipsa itaque, deleniti laboriosam
+								quo sint vitae, assumenda consequatur dolorum maiores distinctio
+								eaque rem dolores cupiditate? Iste.
+							</div>
 						</div>
-					</div>
-				)}
-				{showBeforeIcons && (
-					<div className="before-icons fade-in">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Perspiciatis, explicabo fuga? Nostrum beatae
-						voluptatibus, accusantium ipsam unde obcaecati
-						perferendis, quibusdam provident corrupti soluta nisi
-						labore eum. Quod doloribus dolores alias?
-					</div>
-				)}
-				{showAtIcons && (
-					<div className="at-icons fade-in">
-						<div className="at-icons-left">
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit.
+					)}
+					{showRightOfGeisel && (
+						<div className="right-of-geisel fade-in">
+            <div className="title">
+								<div className="title-base">UCSD</div>
+								<div className="title-red">UCSD</div>
+								<div className="title-green">UCSD</div>
+							</div>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta,
+							expedita natus libero ratione ipsa itaque, deleniti laboriosam quo
+							sint vitae, assumenda consequatur dolorum maiores distinctio eaque
+							rem dolores cupiditate? Iste.
 						</div>
-						<div className="at-icons-right">
-							Perspiciatis, explicabo fuga? Nostrum beatae
-							voluptatibus,
+					)}
+					{showBeforeAtkinson && (
+						<div className="before-atkinson fade-in">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta,
+							expedita natus libero ratione ipsa itaque, deleniti laboriosam quo
+							sint vitae, assumenda consequatur dolorum maiores distinctio eaque
+							rem dolores cupiditate? Iste.
 						</div>
-					</div>
-				)}
-				{showAtSuncave && (
-					<div className="at-suncave fade-in" onClick={props.EnterSuncave}>ENTER THE SUNCAVE</div>
-				)}
-			</div>)}
+					)}
+					{showAtAtkinson && (
+						<div className="at-atkinson fade-in">
+							<div className="at-atkinson-left">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta,
+							</div>
+							<div className="at-atkinson-right">
+								expedita natus libero ratione ipsa itaque, deleniti laboriosam
+							</div>
+						</div>
+					)}
+					{showBeforeIcons && (
+						<div className="before-icons fade-in">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit.
+							Perspiciatis, explicabo fuga? Nostrum beatae voluptatibus,
+							accusantium ipsam unde obcaecati perferendis, quibusdam provident
+							corrupti soluta nisi labore eum. Quod doloribus dolores alias?
+						</div>
+					)}
+					{showAtIcons && (
+						<div className="at-icons fade-in">
+							<div className="at-icons-left">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit.
+							</div>
+							<div className="at-icons-right">
+								Perspiciatis, explicabo fuga? Nostrum beatae voluptatibus,
+							</div>
+						</div>
+					)}
+					{showAtSuncave && (
+						<div className="at-suncave fade-in" onClick={props.EnterSuncave}>
+							ENTER THE SUNCAVE
+						</div>
+					)}
+				</div>
+			)}
 		</div>
 	);
 }
