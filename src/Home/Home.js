@@ -33,13 +33,13 @@ export default function Home() {
 			<Suspense fallback={null}>
 				<color attach="background" args={["midnightblue"]} />
 				{/* <color attach="background" args={["blue"]} /> */}
-				{/* {enteredSuncave && (
+				{enteredSuncave && (
 					<OrbitControls
 						enableZoom={false}
 						enablePan={false}
 					/>
-				)} */}
-				<OrbitControls />
+				)}
+				{/* <OrbitControls /> */}
 				{/* <Stars /> */}
 				<ambientLight />
 				<pointLight position={[10, 10, 10]} />
