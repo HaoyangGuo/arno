@@ -7,34 +7,45 @@ import Element from "./Element/Element.js";
 import { SuncaveContext } from "./Home/SuncaveContext.js";
 
 export default function App() {
-	const { enteredSuncave, EnterSuncave, ExitSuncave } =
+	const { enteredSuncave, EnterSuncave, ExitSuncave, showProjectDetail } =
 		useContext(SuncaveContext);
 	return (
 		<div id="app">
 			<nav className="nav-bar">
 				<div className="nav-bar-logo">
-            <div className="nav-bar-logo-base">ARNO</div>
-            <div className="nav-bar-logo-red">ARNO</div>
-            <div className="nav-bar-logo-green">ARNO</div>
-        </div>
-				<Link className="nav-bar-link" to="/">
-					HOME
-				</Link>
-				<div onClick={EnterSuncave} className="nav-bar-link">
-					PROJECTS
+					<div className="nav-bar-logo-base">ARNO</div>
+					<div className="nav-bar-logo-red">ARNO</div>
+					<div className="nav-bar-logo-green">ARNO</div>
 				</div>
-				<Link className="nav-bar-link" to="/demo">
-					DEMO
-				</Link>
-				<Link className="nav-bar-link" to="/element">
-					ELEMENT
-				</Link>
-				{!enteredSuncave && <div className="nav-bar-line"></div>}
-				{enteredSuncave && (
+				{!enteredSuncave && (
+					<Link className="nav-bar-link" to="/">
+						HOME
+					</Link>
+				)}
+				{!enteredSuncave && (
+					<Link onClick={EnterSuncave} className="nav-bar-link" to="/">
+						PROJECTS
+					</Link>
+				)}
+				{!enteredSuncave && (
+					<Link className="nav-bar-link" to="/demo">
+						DEMO
+					</Link>
+				)}
+				{!enteredSuncave && (
+					<Link className="nav-bar-link" to="/element">
+						ELEMENT
+					</Link>
+				)}
+				{/* {!enteredSuncave && <div className="nav-bar-line"></div>} */}
+				{enteredSuncave && !showProjectDetail && (
 					<div className="nav-bar-exit" onClick={ExitSuncave}>
 						EXIT THE SUNCAVE
 					</div>
 				)}
+				<div className="project-card">
+					
+				</div>
 			</nav>
 			<Routes>
 				<Route exact path="/" element={<Home className="hello" />} />

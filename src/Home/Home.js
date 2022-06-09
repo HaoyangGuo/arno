@@ -18,6 +18,8 @@ import Html from "./components/Html";
 
 import { SuncaveContext } from "./SuncaveContext";
 
+import CloseIcon from "../Home/assets/close-icon.svg";
+
 extend({ MeshLine, MeshLineMaterial });
 
 export default function Home() {
@@ -27,36 +29,55 @@ export default function Home() {
 		ExitSuncave,
 		ShowProjectCard,
 		CloseProjectCard,
+		showProjectDetail,
 	} = useContext(SuncaveContext);
 	return (
-		<Canvas camera={{ fov: 55, position: [0, 0, 5] }}>
-			<Suspense fallback={null}>
-				<color attach="background" args={["midnightblue"]} />
-				{/* <color attach="background" args={["blue"]} /> */}
-				{enteredSuncave && (
-					<OrbitControls
-						enableZoom={false}
-						enablePan={false}
-					/>
-				)}
-				{/* <OrbitControls /> */}
-				{/* <Stars /> */}
-				<ambientLight />
-				<pointLight position={[10, 10, 10]} />
-				{/* <CameraLerp /> */}
-				<ScrollControls pages={[5]}>
-					<Planet
-						position={[0, -12.5, 0]}
-						enteredSuncave={enteredSuncave}
-						EnterSuncave={EnterSuncave}
-						ShowProjectCard={ShowProjectCard}
-					/>
-					{/* <Htmls /> */}
-					<Scroll html>
-						<Html enteredSuncave={enteredSuncave} EnterSuncave={EnterSuncave} />
-					</Scroll>
-				</ScrollControls>
-				{/* <gridHelper
+		<div>
+			{showProjectDetail && (
+				<div className="product-card">
+					<div onClick={CloseProjectCard}>
+						<img src={CloseIcon} className="close" />
+					</div>
+					<div className="iframe-container">
+						<iframe
+							className="responsive-iframe"
+							src="https://www.youtube.com/embed/1pOCzFvyKG4"
+							frameborder="0"
+							allow="autoplay; encrypted-media"
+							allowfullscreen
+							title="video"
+						/>{" "}
+					</div>
+				</div>
+			)}
+			<Canvas camera={{ fov: 55, position: [0, 0, 5] }}>
+				<Suspense fallback={null}>
+					<color attach="background" args={["midnightblue"]} />
+					{/* <color attach="background" args={["blue"]} /> */}
+					{enteredSuncave && (
+						<OrbitControls enableZoom={false} enablePan={false} />
+					)}
+					{/* <OrbitControls /> */}
+					{/* <Stars /> */}
+					<ambientLight />
+					<pointLight position={[10, 10, 10]} />
+					{/* <CameraLerp /> */}
+					<ScrollControls pages={[5]}>
+						<Planet
+							position={[0, -12.5, 0]}
+							enteredSuncave={enteredSuncave}
+							EnterSuncave={EnterSuncave}
+							ShowProjectCard={ShowProjectCard}
+						/>
+						{/* <Htmls /> */}
+						<Scroll html>
+							<Html
+								enteredSuncave={enteredSuncave}
+								EnterSuncave={EnterSuncave}
+							/>
+						</Scroll>
+					</ScrollControls>
+					{/* <gridHelper
 					args={[40, 20, "red", "white"]}
 					position={[0, -12.5, 0]}
 				/>
@@ -70,8 +91,9 @@ export default function Home() {
 					position={[0, -12.5, 0]}
 					rotation={[0, 0, Math.PI / 2]}
 				/> */}
-			</Suspense>
-		</Canvas>
+				</Suspense>
+			</Canvas>
+		</div>
 	);
 }
 

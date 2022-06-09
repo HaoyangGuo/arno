@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import videoPath from "../assets/placeholdervideo.mp4";
+// import videoPath from "../assets/placeholdervideo.mp4";
 import * as THREE from "three";
 
 export default function Screens(props) {
@@ -7,7 +7,7 @@ export default function Screens(props) {
 		<group position={props.position} rotation={props.rotation}>
 			<Screen
 				position={[0, 0.775, -0.75]}
-				rotation={[Math.PI / 6, 0, 0]}
+				rotation={[Math.PI / 6 + 0.1, 0, 0]}
 				playVideo={props.playVideo}
 				ShowProjectCard={props.ShowProjectCard}
         enteredSuncave={props.enteredSuncave}
@@ -46,18 +46,18 @@ export default function Screens(props) {
 function Screen(props) {
 	// const { enteredSuncave, ShowProjectCard } = useContext(SuncaveContext);
 	const [hovered, hover] = useState(false);
-	const [video] = useState(() =>
-		Object.assign(document.createElement("video"), {
-			src: videoPath,
-			crossOrigin: "Anonymous",
-			loop: true,
-			muted: true,
-		})
-	);
-	useEffect(
-		() => void (props.playVideo && video.play()),
-		[video, props.playVideo]
-	);
+	// const [video] = useState(() =>
+	// 	Object.assign(document.createElement("video"), {
+	// 		src: videoPath,
+	// 		crossOrigin: "Anonymous",
+	// 		loop: true,
+	// 		muted: true,
+	// 	})
+	// );
+	// useEffect(
+	// 	() => void (props.playVideo && video.play()),
+	// 	[video, props.playVideo]
+	// );
 	useEffect(() => {
 		document.body.style.cursor = hovered && props.enteredSuncave ? "pointer" : "auto";
 	}, [hovered]);
@@ -67,15 +67,15 @@ function Screen(props) {
 			rotation={props.rotation}
 			onPointerOver={(event) => hover(true)}
 			onPointerOut={(event) => hover(false)}
-      onClick={() => props.ShowProjectCard()}
+      onClick={() => props.ShowProjectCard(props.youtubeUrl)}
 		>
 			<planeGeometry attach="geometry" args={[0.55, 0.26]} />
 			<meshStandardMaterial attach="material" side={0}>
-				<videoTexture
+				{/* <videoTexture
 					attach="map"
 					args={[video]}
 					encoding={THREE.sRGBEncoding}
-				/>
+				/> */}
 			</meshStandardMaterial>
 		</mesh>
 	);

@@ -16,7 +16,8 @@ import Bear from "../components/Bear";
 import Suncave from "../components/Suncave";
 import VideoText from "../components/VideoText";
 import Network from "../components/Network";
-import { Devices, Cursor, Base } from "../components/Cluster";
+// import Objects, { Object, Cursor, Base } from "../components/Cluster";
+import Cluster from "../components/Cluster";
 import Geisel from "../components/Geisel";
 import Trails from "../components/Trails";
 import Particles from "./Particles";
@@ -74,10 +75,10 @@ export default function Planet(props) {
 
 	// console.log("rerendered");
 
-	const testBoxes = [];
-	for (let i = 0; i < 10; i++) {
-		testBoxes.push(<Devices key={i} />);
-	}
+	// const testBoxes = [];
+	// for (let i = 0; i < 10; i++) {
+	// 	testBoxes.push(<Object key={i} />);
+	// }
 
 	function calculateCordinates(r, theta, phi) {
 		const vec = new THREE.Vector3();
@@ -193,12 +194,7 @@ export default function Planet(props) {
 			{/* cluster */}
 			{showCluster && (
 				<group position={[0, -9.25, -9]}>
-					<Physics gravity={[0, 0, 0]}>
-						<Devices />
-						{testBoxes}
-						<Cursor />
-						<Base />
-					</Physics>
+					<Cluster />
 				</group>
 			)}
 		</group>
