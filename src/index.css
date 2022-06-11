@@ -74,7 +74,7 @@ select {
 }
 
 /* ---------- STYLE ---------- */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono&display=swap");
 @font-face {
 	font-family: "Quantum";
 	src: local("Quantum"), url(./fonts/Quantum.woff) format("woff");
@@ -91,7 +91,7 @@ Canvas,
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	font-family: "Inter", sans-serif;
+	font-family: "Roboto Mono", monospace;
 }
 
 ::-webkit-scrollbar {
@@ -99,7 +99,7 @@ Canvas,
 }
 
 .html-body {
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	height: 100%;
 	overflow-y: hidden;
 }
@@ -123,7 +123,7 @@ Canvas,
 	line-height: 0%;
 	letter-spacing: 0.618rem;
 	margin-top: 0.5rem;
-	font-family: "Quantum", sans-serif;
+	font-family: "Quantum", monospace;
 	transform: scaleY(1.2);
 }
 
@@ -144,7 +144,7 @@ Canvas,
 .nav-bar-link {
 	color: white;
 	text-decoration: none;
-	font-family: "Inter", sans-serif;
+	font-family: "Roboto Mono", monospace;
 	font-weight: 400;
 	font-size: 1rem;
 	line-height: 0%;
@@ -162,7 +162,7 @@ Canvas,
 	margin-left: auto;
 	color: white;
 	text-decoration: none;
-	font-family: "Inter", sans-serif;
+	font-family: "Roboto Mono", monospace;
 	font-weight: 400;
 	font-size: 1rem;
 	line-height: 0%;
@@ -175,11 +175,11 @@ Canvas,
 /* ---------- SCROLLING-LAYER ---------- */
 
 .fade-in {
-	animation: fadeIn linear 2.5s;
-	-webkit-animation: fadeIn linear 2.5s;
-	-moz-animation: fadeIn linear 2.5s;
-	-o-animation: fadeIn linear 2.5s;
-	-ms-animation: fadeIn linear 2.5s;
+	animation: fadeIn linear 0.5s;
+	-webkit-animation: fadeIn linear 0.5s;
+	-moz-animation: fadeIn linear 0.5s;
+	-o-animation: fadeIn linear 0.5s;
+	-ms-animation: fadeIn linear 0.5s;
 }
 
 @keyframes fadeIn {
@@ -227,15 +227,31 @@ Canvas,
 	}
 }
 
+.glass-effect {
+	padding: 5%;
+	border-radius: 2rem 2rem 2rem 2rem;
+	background-color: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(5px) !important;
+}
+
+.hoverable {
+
+}
+
+.hoverable:hover {
+	text-decoration: underline;
+}
+
 .title {
 	position: relative;
 	color: white;
-	font-size: 5rem;
+	font-size: 4rem;
 	font-weight: 700;
 	letter-spacing: 0.618rem;
-	font-family: "Quantum", sans-serif;
+	font-family: "Quantum", monospace;
 	transform: scaleY(1.2);
 	white-space: nowrap;
+	margin-left: 2.5%;
 }
 
 .title-green {
@@ -258,35 +274,38 @@ Canvas,
 
 .welcome {
 	position: absolute;
-	top: 65vh;
+	top: 28.5rem;
 	left: 50vw;
 	white-space: nowrap;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	transform: translate(-50%, 0);
+	font-family: "Roboto Mono", monospace;
+	font-size: 1.25rem;
+	color: white;
 }
 
 .left-of-bear {
 	position: absolute;
-	width: 40vw;
-	top: 40vh;
-	left: 10vw;
+	width: 40rem;
+	top: 14rem;
+	left: 10rem;
 	color: white;
 }
 
 .right-of-geisel {
 	position: absolute;
-	width: 40vw;
-	top: 110vh;
-	left: 50vw;
+	width: 40rem;
+	top: 45rem;
+	left: 45rem;
 	color: white;
 }
 
 .before-atkinson {
 	position: absolute;
-	width: 40vw;
-	top: 180vh;
+	width: 40rem;
+	top: 70rem;
 	left: 50vw;
 	color: white;
 	transform: translate(-50%, 0);
@@ -294,26 +313,26 @@ Canvas,
 
 .at-atkinson-left {
 	position: absolute;
-	width: 20vw;
-	top: 250vh;
-	left: 20vw;
+	width: 20rem;
+	top: 110rem;
+	left: 18.5rem;
 	color: white;
 	transform: translate(-50%, 0);
 }
 
 .at-atkinson-right {
 	position: absolute;
-	width: 20vw;
-	top: 250vh;
-	left: 80vw;
+	width: 20rem;
+	top: 110rem;
+	left: 75rem;
 	color: white;
 	transform: translate(-50%, 0);
 }
 
 .before-icons {
 	position: absolute;
-	width: 40vw;
-	top: 290vh;
+	width: 40rem;
+	top: 120rem;
 	left: 50vw;
 	color: white;
 	transform: translate(-50%, 0);
@@ -321,30 +340,31 @@ Canvas,
 
 .at-icons-left {
 	position: absolute;
-	width: 20vw;
-	top: 350vh;
-	left: 20vw;
+	width: 20rem;
+	top: 155rem;
+	left: 18.5rem;
 	color: white;
 	transform: translate(-50%, 0);
 }
 
 .at-icons-right {
 	position: absolute;
-	width: 20vw;
-	top: 350vh;
-	left: 80vw;
+	width: 20rem;
+	top: 155rem;
+	left: 75rem;
 	color: white;
 	transform: translate(-50%, 0);
 }
 
 .at-suncave {
 	position: absolute;
-	top: 475vh;
+	top: 490vh;
 	left: 50vw;
 	color: white;
 	white-space: nowrap;
 	cursor: pointer;
 	transform: translate(-50%, -50%);
+	font-family: "Roboto Mono", monospace;
 }
 
 .product-card {
@@ -355,7 +375,6 @@ Canvas,
 	width: 100vw;
 	height: 100vh;
 	background-color: rgba(15, 15, 68, 0.7);
-
 }
 
 .responsive-iframe {
@@ -376,4 +395,9 @@ Canvas,
 
 .close:hover {
 	cursor: pointer;
+}
+
+.tester {
+	top: 20rem;
+	left: 20rem;
 }

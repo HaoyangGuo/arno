@@ -18,29 +18,29 @@ export default function App() {
 					<div className="nav-bar-logo-green">ARNO</div>
 				</div>
 				{!enteredSuncave && (
-					<Link className="nav-bar-link" to="/">
+					<Link className="nav-bar-link hoverable" to="/">
 						HOME
 					</Link>
 				)}
 				{!enteredSuncave && (
-					<Link onClick={EnterSuncave} className="nav-bar-link" to="/">
+					<Link onClick={EnterSuncave} className="nav-bar-link hoverable" to="/">
 						PROJECTS
 					</Link>
 				)}
 				{!enteredSuncave && (
-					<Link className="nav-bar-link" to="/demo">
+					<Link className="nav-bar-link hoverable" to="/demo">
 						DEMO
 					</Link>
 				)}
 				{!enteredSuncave && (
-					<Link className="nav-bar-link" to="/element">
+					<Link className="nav-bar-link hoverable" to="/element">
 						ELEMENT
 					</Link>
 				)}
 				{/* {!enteredSuncave && <div className="nav-bar-line"></div>} */}
 				{enteredSuncave && !showProjectDetail && (
-					<div className="nav-bar-exit" onClick={ExitSuncave}>
-						EXIT THE SUNCAVE
+					<div className="nav-bar-exit hoverable" onClick={ExitSuncave}>
+						EXIT SUNCAVE
 					</div>
 				)}
 				<div className="project-card">

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { useThree, useFrame, extend, useLoader } from "@react-three/fiber";
 import { Edges, Billboard, Text, Image } from "@react-three/drei";
@@ -8,16 +8,22 @@ import {
 	useBox,
 	Physics,
 } from "@react-three/cannon";
+
 import K8sIcon from "../assets/k8s-icon.png";
 import CephIcon from "../assets/ceph-icon.png";
 import DockerIcon from "../assets/docker-icon.png";
 import NautilusIcon from "../assets/nautilus-icon.png";
 import NsfIcon from "../assets/nsf-icon.png";
 import GitlabIcon from "../assets/gitlab-icon.png";
-import ElementIcon from "../assets/element-icon.svg";
-import PodsIcon from "../assets/pods-icon.png";
+import ElementIcon from "../assets/element-icon.jpeg";
 import PrpIcon from "../assets/prp-icon.jpeg";
 import UcsdIcon from "../assets/ucsd-icon.png";
+import Calit2Icon from "../assets/calit2-icon.png";
+import AppleIcon from "../assets/apple-icon.png";
+import LinuxIcon from "../assets/linux-icon.png";
+import AndroidIcon from "../assets/android-icon.png";
+import ChromeIcon from "../assets/chrome-icon.png";
+import HololensIcon from "../assets/hololens-icon.png";
 
 const vec = new THREE.Vector3();
 // const testMaterial = new THREE.MeshStandardMaterial({ color: "yellow", map: new THREE.TextureLoader().load(testIcon) });
@@ -30,6 +36,11 @@ const testGeometry = new THREE.BoxGeometry(0.65, 0.65, 0.65);
 
 export default function Cluster(props) {
 	const iconUrls = [
+		AppleIcon,
+		LinuxIcon,
+		AndroidIcon,
+		ChromeIcon,
+		HololensIcon,
 		K8sIcon,
 		CephIcon,
 		DockerIcon,
@@ -37,12 +48,12 @@ export default function Cluster(props) {
 		NsfIcon,
 		GitlabIcon,
 		ElementIcon,
-		PodsIcon,
 		PrpIcon,
 		UcsdIcon,
+		Calit2Icon,
 	];
 	const objectsArr = [];
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < 15; i++) {
 		objectsArr.push(<Object key={i} url={iconUrls[i]} />);
 	}
 	return (
@@ -97,21 +108,18 @@ function Object(props) {
 					{/* <Edges scale={2} threshold={15} color="white" />
 					<Edges scale={1.99} threshold={15} color="white" />
 					<Edges scale={1.98} threshold={15} color="white" /> */}
-					<Edges scale={1} threshold={15} color="white" />
-					<Edges scale={1.005} threshold={15} color="white" />
-					<Edges scale={1.01} threshold={15} color="white" />
+					<>
+						<Edges scale={1} threshold={15} color="white" />
+						<Edges scale={1.005} threshold={15} color="white" />
+						<Edges scale={1.01} threshold={15} color="white" />
+					</>
 				</mesh>
-
 				{/* <Image url={props.url} scale={0.5} rotation={[0, 0, 0]} />
 				<Image url={props.url} scale={0.5} rotation={[0, Math.PI / 2, 0]} />
 				<Image url={props.url} scale={0.5} rotation={[0, -Math.PI / 2, 0]} /> */}
 			</group>
 			<Billboard ref={imageRef}>
-				<Image
-					url={props.url}
-					scale={0.5}
-					rotation={[Math.PI + 0.5, 0, 0]}
-				/>
+				<Image url={props.url} scale={0.5} rotation={[Math.PI + 0.5, 0, 0]} />
 			</Billboard>
 		</group>
 	);
@@ -120,7 +128,7 @@ function Object(props) {
 function Base(props) {
 	const [ref, api] = useBox(() => ({
 		type: "Kinematic",
-		args: [8, 8, 0.05],
+		args: [10, 10, 0.05],
 		position: [0, 0.75, 0.75],
 		rotation: [-0.8, 0, 0],
 	}));

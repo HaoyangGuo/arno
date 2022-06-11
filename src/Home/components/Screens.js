@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 // import videoPath from "../assets/placeholdervideo.mp4";
+import { Html } from "@react-three/drei";
 import * as THREE from "three";
 
 export default function Screens(props) {
@@ -70,7 +71,7 @@ function Screen(props) {
       onClick={() => props.ShowProjectCard(props.youtubeUrl)}
 		>
 			<planeGeometry attach="geometry" args={[0.55, 0.26]} />
-			<meshStandardMaterial attach="material" side={0}>
+			<meshStandardMaterial attach="material" side={0} color={"black"}>
 				{/* <videoTexture
 					attach="map"
 					args={[video]}
