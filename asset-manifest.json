@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/arno/static/css/main.40fd6175.css",
+    "main.js": "/arno/static/js/main.63725a1d.js",
+    "static/media/placeholdervideo.mp4": "/arno/static/media/placeholdervideo.9f1e15a9a3991133903a.mp4",
+    "static/media/atks.glb": "/arno/static/media/atks.52592d829e6506b4a990.glb",
+    "static/media/SunCAVE.glb": "/arno/static/media/SunCAVE.87268e63cbfba799fe39.glb",
+    "static/media/geisel.glb": "/arno/static/media/geisel.824a5bdd333a38a2b948.glb",
+    "static/media/bear.glb": "/arno/static/media/bear.0a9d9ee73c35069d43dc.glb",
+    "static/media/prp-icon.jpeg": "/arno/static/media/prp-icon.ccbc69d321720f0ee1d1.jpeg",
+    "static/media/linux-icon.png": "/arno/static/media/linux-icon.ebc9e001a295d6090bc9.png",
+    "static/media/ucsd-icon.png": "/arno/static/media/ucsd-icon.2c8ce9aaad8b21e7b178.png",
+    "static/media/calit2-icon.png": "/arno/static/media/calit2-icon.2fd429ec9e3552667348.png",
+    "static/media/Inter-Bold.woff": "/arno/static/media/Inter-Bold.828b5dfc027ace162d5d.woff",
+    "static/media/docker-icon.png": "/arno/static/media/docker-icon.463f4e2dfce8907283ed.png",
+    "static/media/nautilus-icon.png": "/arno/static/media/nautilus-icon.7f60c112aa2a34f53cc9.png",
+    "static/media/chrome-icon.png": "/arno/static/media/chrome-icon.d3faec0e20472529bcc7.png",
+    "static/media/ceph-icon.png": "/arno/static/media/ceph-icon.60d2e2a73367f3b8442d.png",
+    "static/media/k8s-icon.png": "/arno/static/media/k8s-icon.edb480b047ffd2e17e49.png",
+    "static/media/nsf-icon.png": "/arno/static/media/nsf-icon.dc0923410b06e6cbb67d.png",
+    "static/media/gitlab-icon.png": "/arno/static/media/gitlab-icon.6ed76ee4677cf8f636f5.png",
+    "static/media/android-icon.png": "/arno/static/media/android-icon.750943087aa5affedcd6.png",
+    "static/media/apple-icon.png": "/arno/static/media/apple-icon.646bcb26fcb5a0bb613a.png",
+    "static/media/hololens-icon.png": "/arno/static/media/hololens-icon.44e3b34e160a26fe3449.png",
+    "static/media/Quantum.woff": "/arno/static/media/Quantum.cd505ac545cc722a3192.woff",
+    "index.html": "/arno/index.html",
+    "static/media/close-icon.svg": "/arno/static/media/close-icon.3ee13118d45a62b77d6fa396b3660594.svg",
+    "main.40fd6175.css.map": "/arno/static/css/main.40fd6175.css.map",
+    "main.63725a1d.js.map": "/arno/static/js/main.63725a1d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.40fd6175.css",
+    "static/js/main.63725a1d.js"
+  ]
+}
