@@ -7,12 +7,12 @@ import "./index.css";
 import { SuncaveContextProvider } from "./Home/SuncaveContext";
 
 ReactDOM.render(
-	// <React.StrictMode>
+	<React.StrictMode>
 		<Router>
 			<SuncaveContextProvider>
 				<App />
 			</SuncaveContextProvider>
 		</Router>
-	// </React.StrictMode>,
+	</React.StrictMode>
 	,document.getElementById("root")
 );
