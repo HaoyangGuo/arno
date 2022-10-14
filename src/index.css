@@ -113,7 +113,8 @@ Canvas,
 	flex-direction: row;
 	align-items: center;
 	padding: 2.25rem 3rem 2.25rem 3rem;
-	gap: 5vw;
+	justify-content: space-between;
+	width: 100vw;
 }
 
 .nav-bar-logo {
@@ -358,7 +359,7 @@ Canvas,
 
 .at-suncave {
 	position: absolute;
-	top: 490vh;
+	top: 470vh;
 	left: 50vw;
 	color: white;
 	white-space: nowrap;
@@ -400,4 +401,8 @@ Canvas,
 .tester {
 	top: 20rem;
 	left: 20rem;
+}
+
+.full {
+	height: 100%;
 }

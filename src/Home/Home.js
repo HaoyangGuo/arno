@@ -32,7 +32,7 @@ export default function Home() {
 		showProjectDetail,
 	} = useContext(SuncaveContext);
 	return (
-		<div>
+		<div className="full">
 			{showProjectDetail && (
 				<div className="product-card">
 					<div onClick={CloseProjectCard}>

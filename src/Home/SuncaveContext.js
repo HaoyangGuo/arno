@@ -27,8 +27,6 @@ function SuncaveContextProvider({ children }) {
 		}
 	}
 
-	console.log("ShowProjectDetail changed to: " + showProjectDetail);
-
 	return (
 		<SuncaveContext.Provider
 			value={{
