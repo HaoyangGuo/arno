@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef,} from "react";
 import * as THREE from "three";
-import { useThree, useFrame, extend, useLoader } from "@react-three/fiber";
-import { Edges, Billboard, Text, Image } from "@react-three/drei";
+import { useThree, useFrame} from "@react-three/fiber";
+import { Edges, Billboard, Image } from "@react-three/drei";
 import {
-	useCompoundBody,
 	useSphere,
 	useBox,
 	Physics,
@@ -58,9 +57,7 @@ export default function Cluster(props) {
 	}
 	return (
 		<Physics gravity={[0, 0, 0]}>
-			{/* <Object /> */}
 			{objectsArr}
-			{/* {testBoxes} */}
 			<Cursor />
 			<Base />
 		</Physics>
@@ -126,7 +123,7 @@ function Object(props) {
 }
 
 function Base(props) {
-	const [ref, api] = useBox(() => ({
+	const [ref] = useBox(() => ({
 		type: "Kinematic",
 		args: [10, 10, 0.05],
 		position: [0, 0.75, 0.75],
@@ -147,11 +144,10 @@ function Base(props) {
 }
 
 function Cursor({ ...props }) {
-	const viewport = useThree((state) => state.viewport);
+	const viewport = useThree((state) => state.viewport)
 	const [, api] = useSphere(() => ({
 		type: "Kinematic",
 		args: [1],
-		// position: [0, 0, 0],
 	}));
 	return useFrame((state) =>
 		api.position.set(

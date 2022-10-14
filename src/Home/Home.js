@@ -1,16 +1,12 @@
-import React, { Suspense, useRef, useContext } from "react";
-import { Canvas, useFrame, extend, useThree } from "@react-three/fiber";
+import React, { Suspense, useContext } from "react";
+import { Canvas, useFrame, extend } from "@react-three/fiber";
 import {
 	Scroll,
 	ScrollControls,
-	useScroll,
-	Stars,
-	Cloud,
 	OrbitControls,
 } from "@react-three/drei";
 
 import * as THREE from "three";
-import { Physics } from "@react-three/cannon";
 import { MeshLine, MeshLineMaterial } from "./MeshLine";
 
 import Planet from "./components/Planet";
@@ -57,8 +53,6 @@ export default function Home() {
 					{enteredSuncave && (
 						<OrbitControls enableZoom={false} enablePan={false} />
 					)}
-					{/* <OrbitControls /> */}
-					{/* <Stars /> */}
 					<ambientLight />
 					<pointLight position={[10, 10, 10]} />
 					{/* <CameraLerp /> */}
@@ -69,7 +63,6 @@ export default function Home() {
 							EnterSuncave={EnterSuncave}
 							ShowProjectCard={ShowProjectCard}
 						/>
-						{/* <Htmls /> */}
 						<Scroll html>
 							<Html
 								enteredSuncave={enteredSuncave}
