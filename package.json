@@ -1,7 +1,6 @@
 {
   "name": "arno",
   "version": "0.1.0",
-  "homepage": "https://haoyangguo.github.io/arno/",
   "private": true,
   "dependencies": {
     "@react-three/cannon": "^6.3.0",
