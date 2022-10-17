@@ -1,12 +1,8 @@
-import React, { useEffect, useRef,} from "react";
+import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { useThree, useFrame} from "@react-three/fiber";
+import { useThree, useFrame } from "@react-three/fiber";
 import { Edges, Billboard, Image } from "@react-three/drei";
-import {
-	useSphere,
-	useBox,
-	Physics,
-} from "@react-three/cannon";
+import { useSphere, useBox, Physics } from "@react-three/cannon";
 
 import K8sIcon from "../assets/k8s-icon.png";
 import CephIcon from "../assets/ceph-icon.png";
@@ -58,7 +54,8 @@ export default function Cluster(props) {
 	return (
 		<Physics gravity={[0, 0, 0]}>
 			{objectsArr}
-			<Cursor />
+			{/* <Cursor /> */}
+			<Pointer />
 			<Base />
 		</Physics>
 	);
@@ -143,11 +140,27 @@ function Base(props) {
 	);
 }
 
-function Cursor({ ...props }) {
-	const viewport = useThree((state) => state.viewport)
+// function Cursor({ ...props }) {
+// 	const viewport = useThree((state) => state.viewport);
+// 	const [, api] = useSphere(() => ({
+// 		type: "Kinematic",
+// 		args: [1],
+// 	}));
+// 	return useFrame((state) =>
+// 		api.position.set(
+// 			(state.mouse.x * viewport.width) / 2,
+// 			(state.mouse.y * viewport.height) / 2,
+// 			0
+// 		)
+// 	);
+// }
+
+function Pointer() {
+	const viewport = useThree((state) => state.viewport);
 	const [, api] = useSphere(() => ({
 		type: "Kinematic",
 		args: [1],
+		position: [0, 0, 0],
 	}));
 	return useFrame((state) =>
 		api.position.set(
