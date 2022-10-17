@@ -1,4 +1,4 @@
-# ARNO Web
+# ARNO Web (work in progress)
 ## [Live Development Demo](https://haoyangguo.github.io/arno)
 ARNO Web is an experimental landing page for Qualcomm Institute's [AUGMENTED REALITY NETWORK OBSERVATORY](https://gitlab.nrp-nautilus.io/ar-noc/arnobeta) project. This site is built with WebGL, React.js, and Three.js.
 
