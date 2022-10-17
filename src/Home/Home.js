@@ -1,16 +1,12 @@
 import React, { Suspense, useContext } from "react";
 import { Canvas, useFrame, extend } from "@react-three/fiber";
-import {
-	Scroll,
-	ScrollControls,
-	OrbitControls,
-} from "@react-three/drei";
+import { Scroll, ScrollControls, OrbitControls, Html } from "@react-three/drei";
 
 import * as THREE from "three";
 import { MeshLine, MeshLineMaterial } from "./MeshLine";
 
 import Planet from "./components/Planet";
-import Html from "./components/Html";
+import HtmlContent from "./components/Html";
 
 import { SuncaveContext } from "./SuncaveContext";
 
@@ -22,7 +18,6 @@ export default function Home() {
 	const {
 		enteredSuncave,
 		EnterSuncave,
-		ExitSuncave,
 		ShowProjectCard,
 		CloseProjectCard,
 		showProjectDetail,
@@ -32,7 +27,7 @@ export default function Home() {
 			{showProjectDetail && (
 				<div className="product-card">
 					<div onClick={CloseProjectCard}>
-						<img src={CloseIcon} className="close" />
+						<img src={CloseIcon} className="close" alt="close" />
 					</div>
 					<div className="iframe-container">
 						<iframe
@@ -47,7 +42,15 @@ export default function Home() {
 				</div>
 			)}
 			<Canvas camera={{ fov: 55, position: [0, 0, 5] }}>
-				<Suspense fallback={null}>
+				<Suspense
+					fallback={
+						<Html>
+							<div className="loading">
+								<div className="loading-text">Loading...</div>
+							</div>
+						</Html>
+					}
+				>
 					<color attach="background" args={["midnightblue"]} />
 					{/* <color attach="background" args={["blue"]} /> */}
 					{enteredSuncave && (
@@ -55,7 +58,6 @@ export default function Home() {
 					)}
 					<ambientLight />
 					<pointLight position={[10, 10, 10]} />
-					{/* <CameraLerp /> */}
 					<ScrollControls pages={[5]}>
 						<Planet
 							position={[0, -12.5, 0]}
@@ -64,7 +66,7 @@ export default function Home() {
 							ShowProjectCard={ShowProjectCard}
 						/>
 						<Scroll html>
-							<Html
+							<HtmlContent
 								enteredSuncave={enteredSuncave}
 								EnterSuncave={EnterSuncave}
 							/>
@@ -88,30 +90,4 @@ export default function Home() {
 			</Canvas>
 		</div>
 	);
-}
-
-function CameraLerp() {
-	useFrame(({ mouse, camera }) => {
-		camera.position.x = THREE.MathUtils.lerp(
-			camera.position.x,
-			mouse.x * 0.5,
-			0.03
-		);
-		camera.position.y = THREE.MathUtils.lerp(
-			camera.position.y,
-			mouse.y * 0.8,
-			0.01
-		);
-		camera.position.z = THREE.MathUtils.lerp(
-			camera.position.z,
-			Math.max(4, Math.abs(mouse.x * mouse.y * 8)),
-			0.01
-		);
-		camera.rotation.y = THREE.MathUtils.lerp(
-			camera.rotation.y,
-			mouse.x * -Math.PI * 0.025,
-			0.001
-		);
-	});
-	return <></>;
 }

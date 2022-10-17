@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
-export default function Html(props) {
+export default function HtmlContent(props) {
 	const data = useScroll();
-	// const [showWelcome, setShowWelcome] = useState(true);
-	// const [showLeftOfBear, setShowLeftOfBear] = useState(false);
-	// const [showRightOfGeisel, setShowRightOfGeisel] = useState(false);
-	// const [showBeforeAtkinson, setShowBeforeAtkinson] = useState(false);
-	// const [showAtAtkinson, setShowAtAtkinson] = useState(false);
-	// const [showBeforeIcons, setShowBeforeIcons] = useState(false);
-	// const [showAtIcons, setShowAtIcons] = useState(false);
-	// const [showAtSuncave, setShowAtSuncave] = useState(false);
 
 	const [showWelcome, setShowWelcome] = useState(true);
 	const [showLeftOfBear, setShowLeftOfBear] = useState(true);
