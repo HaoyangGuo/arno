@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/arno/static/css/main.fa160658.css",
-    "main.js": "/arno/static/js/main.b55c1c1d.js",
+    "main.css": "/arno/static/css/main.92898dc5.css",
+    "main.js": "/arno/static/js/main.10262051.js",
     "static/media/placeholdervideo.mp4": "/arno/static/media/placeholdervideo.9f1e15a9a3991133903a.mp4",
     "static/media/atks.glb": "/arno/static/media/atks.52592d829e6506b4a990.glb",
     "static/media/SunCAVE.glb": "/arno/static/media/SunCAVE.87268e63cbfba799fe39.glb",
@@ -25,11 +25,11 @@
     "static/media/Quantum.woff": "/arno/static/media/Quantum.cd505ac545cc722a3192.woff",
     "index.html": "/arno/index.html",
     "static/media/close-icon.svg": "/arno/static/media/close-icon.3ee13118d45a62b77d6fa396b3660594.svg",
-    "main.fa160658.css.map": "/arno/static/css/main.fa160658.css.map",
-    "main.b55c1c1d.js.map": "/arno/static/js/main.b55c1c1d.js.map"
+    "main.92898dc5.css.map": "/arno/static/css/main.92898dc5.css.map",
+    "main.10262051.js.map": "/arno/static/js/main.10262051.js.map"
   },
   "entrypoints": [
-    "static/css/main.fa160658.css",
-    "static/js/main.b55c1c1d.js"
+    "static/css/main.92898dc5.css",
+    "static/js/main.10262051.js"
   ]
 }
